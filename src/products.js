@@ -1,6 +1,6 @@
-import { complaintIcon } from "./assers/complaint-icon";
-import { deviceMacBook } from "./assets/Device - Macbook Pro.png";
-import { Camera } from "./assets/Ellipse 54.png";
+import { Camera } from "phosphor-react";
+import { complaintIcon, deviceMacBook } from "./assets";
+
 export const PRODUCTS = [
   {
     id: 1,
@@ -9,13 +9,13 @@ export const PRODUCTS = [
     productImage: complaintIcon,
   },
   {
-    id: 1,
+    id: 2,
     productName: "MacBook",
     price: 1999.0,
     productImage: deviceMacBook,
   },
   {
-    id: 1,
+    id: 3,
     productName: "Camera",
     price: 799.0,
     productImage: Camera,
