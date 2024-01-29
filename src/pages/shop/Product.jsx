@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { styled } from "styled-components";
+import { ShopContext } from "../../context/shop-context";
 
 export const Product = ({ data }) => {
+  const { addToCart, cartItems } = useContext(ShopContext);
+  const cartItemAmount = cartItems[data.id];
   return (
     <Container>
       <img src={data.productImage} alt={data.productName} />
@@ -11,6 +14,9 @@ export const Product = ({ data }) => {
         </p>
         <p>${data.price}</p>
       </Card>
+      <Btn onClick={() => addToCart(data.id)}>
+        Add To Cart{cartItemAmount > 0 && <>({cartItemAmount})</>}
+      </Btn>
     </Container>
   );
 };
@@ -33,4 +39,15 @@ const Card = styled("div")`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+const Btn = styled("button")`
+  border-radius: 50px;
+  padding: 8px 12px;
+  background-color: white;
+  font-weight: 700;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
 `;
